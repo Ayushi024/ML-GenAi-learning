@@ -15,6 +15,4 @@
 - Python & Pandas
 - Scikit-learn
 
-## 📂 Projects
 
-- End-to-End ML Project
