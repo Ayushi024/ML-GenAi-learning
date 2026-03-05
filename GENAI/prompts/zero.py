@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="AIzaSyCMxPno2Dr0GInV6H4CbOE5Ui83FJY9tEc",
+    api_key="API-KEY",
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 #Zero shot prompting: Directly asking the model to perform a task without providing any examples. The model relies solely on its pre-trained knowledge to generate a response based on the given prompt.
