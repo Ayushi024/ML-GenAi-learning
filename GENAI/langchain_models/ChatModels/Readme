@@ -1,0 +1,29 @@
+Models like:
+GPT-4
+Claude
+Google Gemini
+are not open source. These are proprietary models.
+
+Limitations
+Because they are closed-source:
+You cannot see the model architecture or weights
+You cannot train or modify the model
+You must use their API
+Your app depends on their pricing and rate limits
+you do not have full control.
+
+
+
+Open-Source / Open-Weight Models
+Examples:
+LLaMA
+Mistral
+Falcon
+
+Advantages
+Usually free to download and use
+Can be modified or fine-tuned
+Can be deployed anywhere
+Can run on-premise or in the cloud
+You have full control over the model and infrastructure
+These models can either be run using an inference API or executed locally.
