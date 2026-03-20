@@ -3,12 +3,14 @@ from dotenv import load_dotenv
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
-from langchain.prompts import load_prompt
 # Load env variables
 load_dotenv()
 
 # Initialize model
-model = ChatGoogleGenerativeAI()
+model = ChatGoogleGenerativeAI(
+    model="gemini-3-flash-preview",
+    google_api_key=os.getenv("GOOGLE_API_KEY")
+)
 
 st.header("Research Tool")
 #static prompt
@@ -38,12 +40,19 @@ length_input = st.selectbox(
 )
 
 # Prompt template
-template = load_prompt('research_summary_template.json')
-
+template = PromptTemplate(
+    input_variables=["paper", "style", "length"],
+    template="Explain {paper} in {style} style with {length} detail."
+)
 # Button
 if st.button("Generate Explanation"):
-    chain = model | template
-    prompt = chain.invoke({ "paper": paper_input, "style": style_input, "length": length_input 
-        })
+    chain = template | model   # correct order
+
+    result = chain.invoke({
+        "paper": paper_input,
+        "style": style_input,
+        "length": length_input
+    })
+
     st.subheader("Generated Explanation:")
     st.write(result.content)
